@@ -1,184 +1,95 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* src/App.css */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+.pantalla-completa {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
+  margin: 0;
   padding: 0;
+}
+
+.lado-decorativo {
+  flex: 1;
+  background: linear-gradient(
+    110deg, 
+    #547567 0%, #547567 48%, 
+    #24b6a4 48%, #24b6a4 70%, 
+    #ffffff 70%
+  );
+}
+
+.lado-formulario {
+  flex: 1;
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
+.caja-login {
   width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.titulo-verde {
+  color: #1a3d2f;
+  font-weight: bold;
+  margin: 0;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.subtitulo-gris {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+
+/* --- ESTILOS PARA CustomInput --- */
+
+.bloque-input {
+  margin-bottom: 20px; /* Espacio entre el correo y la contraseña */
+  width: 100%;
+}
+
+.entrada-texto {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ced4da; /* Gris claro */
+  border-radius: 6px;        /* Bordes redondeados suaves */
+  font-size: 16px;
+  background-color: #fdfdfd;
+  transition: all 0.3s ease; /* Para que el cambio de color sea suave */
+  outline: none;
+}
+
+/* Efecto cuando el usuario hace clic para escribir */
+.entrada-texto:focus {
+  border-color: #24b6a4;     /* El verde aqua de SIVEMOR */
+  box-shadow: 0 0 5px rgba(36, 182, 164, 0.2); /* Un pequeño brillo */
+}
+
+
+/* --- ESTILOS PARA MainButton --- */
+
+.boton-principal {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a3d2f; /* El verde oscuro institucional */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Efecto cuando el usuario pasa el mouse por encima */
+.boton-principal:hover {
+  background-color: #24b6a4; /* Cambia al verde aqua */
+}
+
+/* Efecto cuando el usuario hace clic */
+.boton-principal:active {
+  transform: scale(0.98);    /* Se hace un poquito más pequeño al presionarlo */
 }
