@@ -1,121 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import { SideMenu } from './components/SideMenu';
+import { SivemorLogo } from './components/SivemorLogo';
+import { TablaReportes } from './components/TablaReportes'; // Asegúrate de que este archivo exista
+import './App.css'; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [filtroActivo, setFiltroActivo] = useState('Todos');
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="min-vh-100 d-flex flex-column" style={{ backgroundColor: 'var(--sivemor-bg-light)' }}>
+      
+      {/* Header */}
+      <header>
+        <div className="d-flex align-items-center" style={{ backgroundColor: 'var(--sivemor-header-bg)', padding: '15px 30px', color: 'white' }}>
+          <SivemorLogo size="60px" />
+          <div>
+            <h3 className="m-0 fw-bold">SIVEMOR</h3>
+            <small style={{ fontSize: '12px' }}>Sistema de Verificación de Morelos</small>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        <div style={{ height: '10px', backgroundColor: 'var(--sivemor-header-stripe)' }}></div>
+      </header>
 
-      <div className="ticks"></div>
+      {/* Contenedor Principal */}
+      <div className="container-fluid flex-grow-1 p-0">
+        <div className="row g-0 h-100 justify-content-center mt-4 mb-4">
+          <div className="col-11 d-flex shadow-sm rounded overflow-hidden" style={{ backgroundColor: 'white', minHeight: '70vh' }}>
+            
+            {/* Menú Lateral */}
+            <SideMenu 
+              filtroActivo={filtroActivo} 
+              cambiarFiltro={setFiltroActivo} 
+            />
+            
+            <div className="flex-grow-1 d-flex flex-column">
+              <div className="d-flex justify-content-between align-items-center px-4 py-3" style={{ backgroundColor: '#8eb09c' }}>
+                <h4 className="m-0 fw-bold text-dark">Reportes: {filtroActivo}</h4>
+                <div className="input-group" style={{ width: '250px' }}>
+                  <span className="input-group-text bg-white border-end-0">🔍</span>
+                  <input type="text" className="form-control border-start-0 ps-0 form-control-sm" placeholder="Search..." />
+                </div>
+              </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+              {/* AQUÍ ESTÁ LA MAGIA */}
+              <div className="p-4 bg-white flex-grow-1">
+                 <TablaReportes />
+              </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
