@@ -41,3 +41,55 @@
   color: #6c757d;
   font-size: 14px;
 }
+
+
+/* --- ESTILOS PARA CustomInput --- */
+
+.bloque-input {
+  margin-bottom: 20px; /* Espacio entre el correo y la contraseña */
+  width: 100%;
+}
+
+.entrada-texto {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ced4da; /* Gris claro */
+  border-radius: 6px;        /* Bordes redondeados suaves */
+  font-size: 16px;
+  background-color: #fdfdfd;
+  transition: all 0.3s ease; /* Para que el cambio de color sea suave */
+  outline: none;
+}
+
+/* Efecto cuando el usuario hace clic para escribir */
+.entrada-texto:focus {
+  border-color: #24b6a4;     /* El verde aqua de SIVEMOR */
+  box-shadow: 0 0 5px rgba(36, 182, 164, 0.2); /* Un pequeño brillo */
+}
+
+
+/* --- ESTILOS PARA MainButton --- */
+
+.boton-principal {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a3d2f; /* El verde oscuro institucional */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Efecto cuando el usuario pasa el mouse por encima */
+.boton-principal:hover {
+  background-color: #24b6a4; /* Cambia al verde aqua */
+}
+
+/* Efecto cuando el usuario hace clic */
+.boton-principal:active {
+  transform: scale(0.98);    /* Se hace un poquito más pequeño al presionarlo */
+}

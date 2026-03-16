@@ -3,7 +3,7 @@ function CustomInput({ type = "text", placeholder, value, onChange }) {
     <div className="bloque-input">
       <input
         type={type}
-        className="entrada-texto"
+        className="entrada-texto" // <--- Esta clase debe coincidir con el CSS
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -11,5 +11,4 @@ function CustomInput({ type = "text", placeholder, value, onChange }) {
     </div>
   );
 }
-
 export default CustomInput;
