@@ -1,4 +1,4 @@
-function InputOption({ label, name, onChange, placeholder = "Ingresa la cantidad" }) {
+const InputOption = ({ label, name, onChange, placeholder = "Ingresa la cantidad" }) => {
   return (
     <div className="fila-opcion-input">
       <p className="texto-label-input">{label}</p>
@@ -11,6 +11,6 @@ function InputOption({ label, name, onChange, placeholder = "Ingresa la cantidad
       />
     </div>
   );
-}
+};
 
 export default InputOption;

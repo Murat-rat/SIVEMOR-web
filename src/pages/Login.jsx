@@ -24,8 +24,8 @@ function Login() {
 
           {/* Campos de texto y Botón */}
           <form>
-            <CustomInput placeholder="correo@ejemplo.com" />
-            <CustomInput type="password" placeholder="............" />
+            <CustomInput placeholder="ingrsa tu correo" />
+            <CustomInput type="contraseña" placeholder="cargando. . . . " />
             <MainButton text="Iniciar Sesión" />
           </form>
           
