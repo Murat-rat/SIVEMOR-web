@@ -1,95 +1,406 @@
-/* src/App.css */
+/* --- CONFIGURACIÓN GLOBAL --- */
+:root {
+  --verde-oscuro: #1a3d2f;
+  --verde-medio: #547567;
+  --verde-fondo-area: #a3c1ad;
+  --aqua-sivemor: #24b6a4;
+  --azul-borde: #0091ff;
+  --blanco: #ffffff;
+  --gris-claro: #f4f7f6;
+}
 
-.pantalla-completa {
-  height: 100vh;
-  display: flex;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.lado-decorativo {
-  flex: 1;
-  background: linear-gradient(
-    110deg, 
-    #547567 0%, #547567 48%, 
-    #24b6a4 48%, #24b6a4 70%, 
-    #ffffff 70%
-  );
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--gris-claro);
+  line-height: 1.5;
 }
 
-.lado-formulario {
-  flex: 1;
+/* --- NAVBAR --- */
+.contenedor-navbar {
+  width: 100%;
+}
+
+.franja-superior {
+  background-color: var(--verde-oscuro);
+  color: white;
+  padding: 10px 40px;
+}
+
+.contenido-franja-superior {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: white;
+  gap: 20px;
 }
 
-.caja-login {
+.logo-sivemorB {
+  height: 50px !important;
+  width: auto !important;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+.nombre-empresa {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.descripcion-empresa {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.franja-inferior-aqua {
+  background-color: var(--aqua-sivemor);
+  height: 8px;
+}
+
+/* --- ESTRUCTURA GENERAL --- */
+.pagina-evaluacion {
+  padding: 30px 50px;
+}
+
+.titulo-seccion-evaluacion {
+  color: var(--verde-oscuro);
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.subtitulo-seccion-evaluacion {
+  color: var(--verde-medio);
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* --- AREA DE CONTENIDO --- */
+.area-contenido-evaluacion {
+  background-color: #eef3f1;
+  padding: 25px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* --- GRID TARJETAS --- */
+.rejilla-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* --- TARJETAS --- */
+.tarjeta-blanca {
+  background-color: #f7f9f8;
+  padding: 18px 20px;
+  border-radius: 6px;
+  border: 1px solid #e4e9e7;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  height: 100%;
+}
+
+/* --- TITULO DE CARD --- */
+.encabezado-tarjeta {
+  color: var(--verde-oscuro);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e9efec;
+  padding-bottom: 6px;
+}
+
+/* --- OPCIONES (RADIOS) --- */
+.fila-opcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.texto-opcion-envolvente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.selector-check {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--verde-oscuro);
+  cursor: pointer;
+}
+
+.texto-label {
+  font-size: 13px;
+  color: #333;
+}
+
+/* --- NUEVOS ESTILOS PARA INPUTS (Cantidades/PSI/mm) --- */
+.contenedor-input-sivemor {
+  margin-top: 5px;
+}
+
+.texto-label-input {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.input-numero-sivemor {
   width: 100%;
-  max-width: 350px;
+  padding: 10px 12px;
+  border: 1px solid #d1d9d6;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #333;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-numero-sivemor:focus {
+  border-color: var(--aqua-sivemor);
+  box-shadow: 0 0 0 2px rgba(36, 182, 164, 0.1);
+}
+
+.input-numero-sivemor::placeholder {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* --- BOTONES --- */
+.barra-botones-final {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.contenedor-boton-accion {
+  width: 140px;
+}
+
+.boton-cancelar-final,
+.contenedor-boton-accion button {
+  width: 100% !important;
+  padding: 10px 14px;
+  background-color: var(--verde-oscuro);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.boton-cancelar-final:hover,
+.contenedor-boton-accion button:hover {
+  filter: brightness(1.15);
+}
+
+/* --- UTILIDADES --- */
+.imagen-referencia-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px dashed #ccc;
+}
+
+.imagen-referencia-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff; /* Fondo blanco para resaltar el diagrama */
+  border: 1px dashed #ccc; /* Borde punteado como en la imagen 9c439d.png */
+  border-radius: 4px;
+}
+
+.imagen-referencia {
+  max-width: 100%; /* Evita que la imagen se salga de la pantalla en móviles */
+  height: auto;
+  max-height: 250px; /* Ajusta este valor según el tamaño real de tu PNG */
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+/* Contenedor gris que abarca todo el ancho */
+.contenedor-comentario-evidencia {
+  background-color: #c9cecc; 
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+  width: 100%; /* Importante para que no se vea como una tarjeta pequeña */
+}
+
+.label-comentario {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.input-comentario {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #999; /* La línea sutil inferior */
+  color: #333;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none; /* Evita que el usuario deforme el cuadro */
+  outline: none;
+  padding: 5px 0;
+}
+
+
+
+
+
+/* Contenedor para alinear el botón a la derecha debajo del header */
+.contenedor-logout-superior {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px 0 0; /* Ajusta según el margen de tus cards */
+}
+
+.boton-logout-reutilizable {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.boton-logout-reutilizable:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.icono-logout {
+  width: 45px; /* Tamaño aproximado al de tu imagen */
+  height: 45px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-logout-superior {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px; /* Margen superior y derecho */
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-evidencia-tarjeta {
+  padding: 15px;
+  min-height: 220px;
+}
+
+.encabezado-tarjeta-evidencia {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.titulo-verde {
-  color: #1a3d2f;
-  font-weight: bold;
-  margin: 0;
-}
-
-.subtitulo-gris {
-  color: #6c757d;
-  font-size: 14px;
-}
-
-
-/* --- ESTILOS PARA CustomInput --- */
-
-.bloque-input {
-  margin-bottom: 20px; /* Espacio entre el correo y la contraseña */
+.cuadro-imagen-clickeable {
+  background-color: #d9d9d9; /* El gris de tu imagen */
+  border-radius: 8px;
   width: 100%;
-}
-
-.entrada-texto {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ced4da; /* Gris claro */
-  border-radius: 6px;        /* Bordes redondeados suaves */
-  font-size: 16px;
-  background-color: #fdfdfd;
-  transition: all 0.3s ease; /* Para que el cambio de color sea suave */
-  outline: none;
-}
-
-/* Efecto cuando el usuario hace clic para escribir */
-.entrada-texto:focus {
-  border-color: #24b6a4;     /* El verde aqua de SIVEMOR */
-  box-shadow: 0 0 5px rgba(36, 182, 164, 0.2); /* Un pequeño brillo */
-}
-
-
-/* --- ESTILOS PARA MainButton --- */
-
-.boton-principal {
-  width: 100%;
-  padding: 12px;
-  background-color: #1a3d2f; /* El verde oscuro institucional */
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
-/* Efecto cuando el usuario pasa el mouse por encima */
-.boton-principal:hover {
-  background-color: #24b6a4; /* Cambia al verde aqua */
+.cuadro-imagen-clickeable:hover {
+  filter: brightness(0.9);
 }
 
-/* Efecto cuando el usuario hace clic */
-.boton-principal:active {
-  transform: scale(0.98);    /* Se hace un poquito más pequeño al presionarlo */
+.imagen-previsualizacion {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.overlay-subir {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cuadro-imagen-clickeable:hover .overlay-subir {
+  opacity: 1;
 }
